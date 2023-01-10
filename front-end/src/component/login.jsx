@@ -1,11 +1,13 @@
 import "./style.css";
 import { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState(false);
+  const Navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     const check = {
@@ -66,7 +68,7 @@ const Login = () => {
               Don't have an account? <Link to='register'>Sign-up</Link>
             </p>
             {login ? (
-              <p className="sucess">Your are  logged in</p>
+              <p className="sucess">Your are  logged in {Navigate('student')}</p>
             ) : (<p className="nscs">You are not logged in Enter credential.</p>)}
           </div>
         </div>
